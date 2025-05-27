@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#a14fb3">
+  <meta name="description" content="Aplicativo do Estúdio de Beleza Cantinho de Mulher para agendamentos e cadastros">
+  <title>Estúdio de Beleza Cantinho de Mulher - Protótipo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/icon-192x192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar">
+      <div class="logo">
+        <i class="fas fa-spa"></i>
+        <span>Cantinho de Mulher</span>
+      </div>
+      <nav class="nav-menu">
+        <button class="nav-item active" data-screen="cadastro">
+          <i class="fas fa-user-plus"></i>
+          <span>Cadastro</span>
+        </button>
+        <button class="nav-item" data-screen="agenda">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Agendamento</span>
+        </button>
+        <button class="nav-item" data-screen="notificacoes">
+          <i class="fas fa-bell"></i>
+          <span>Notificações</span>
+        </button>
+        <button class="nav-item" data-screen="horarios">
+          <i class="fas fa-clock"></i>
+          <span>Horários</span>
+        </button>
+      </nav>
+      <div class="user-profile">
+        <div class="avatar">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="user-info">
+          <h4>Admin</h4>
+          <p>Gerente</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <header class="top-bar">
+        <div class="page-title">
+          <h1>Estúdio de Beleza Cantinho de Mulher</h1>
+        </div>
+        <div class="top-actions">
+          <button class="action-btn">
+            <i class="fas fa-search"></i>
+          </button>
+          <button class="action-btn notification">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+          </button>
+          <button class="action-btn">
+            <i class="fas fa-cog"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="screen-container">
+        <!-- Tela de Cadastro -->
+        <div class="screen active" id="cadastro">
+          <div class="screen-header">
+            <h2>Cadastro de Cliente</h2>
+            <p>Adicione novos clientes ao sistema</p>
+          </div>
+          
+          <div class="card">
+            <form class="form-grid">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-user"></i>
+                  <input type="text" id="nome" placeholder="Digite o nome completo">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-phone"></i>
+                  <input type="tel" id="telefone" placeholder="(00) 00000-0000">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" id="email" placeholder="email@exemplo.com">
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="aniversario">Data de Nascimento</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-birthday-cake"></i>
+                  <input type="date" id="aniversario">
+                </div>
+              </div>
+              
+              <div class="form-group full-width">
+                <label for="servico">Serviços de Interesse</label>
+                <div class="select-with-icon">
+                  <i class="fas fa-cut"></i>
+                  <select id="servico" multiple>
+                    <option value="manicure">Manicure</option>
+                    <option value="pedicure">Pedicure</option>
+                    <option value="cabelereiro">Cabeleireiro</option>
+                    <option value="maquiagem">Maquiagem</option>
+                    <option value="depilacao">Depilação</option>
+                    <option value="massagem">Massagem</option>
+                  </select>
+                </div>
+                <div class="chips-container">
+                  <div class="chip">Manicure <i class="fas fa-times"></i></div>
+                  <div class="chip">Cabeleireiro <i class="fas fa-times"></i></div>
+                </div>
+              </div>
+              
+              <div class="form-group full-width">
+                <label for="obs">Observações</label>
+                <div class="input-with-icon textarea">
+                  <i class="fas fa-sticky-note"></i>
+                  <textarea id="obs" rows="3" placeholder="Anote algo importante sobre o cliente..."></textarea>
+                </div>
+              </div>
+              
+              <div class="form-actions full-width">
+                <button type="button" class="btn btn-outline">Cancelar</button>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save"></i> Salvar Cliente
+                </button>
+              </div>
+            </form>
+          </div>
+          
+          <div class="recent-clients">
+            <div class="section-header">
+              <h3>Clientes Recentes</h3>
+              <button class="btn btn-text">Ver todos <i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="clients-list">
+              <div class="client-card">
+                <div class="client-avatar">
+                  <span>MR</span>
+                </div>
+                <div class="client-info">
+                  <h4>Maria Rodrigues</h4>
+                  <p>Último serviço: Manicure (23/05)</p>
+                </div>
+                <div class="client-actions">
+                  <button class="action-icon"><i class="fas fa-edit"></i></button>
+                  <button class="action-icon"><i class="fas fa-calendar-plus"></i></button>
+                </div>
+              </div>
+              
+              <div class="client-card">
+                <div class="client-avatar">
+                  <span>JS</span>
+                </div>
+                <div class="client-info">
+                  <h4>João Silva</h4>
+                  <p>Último serviço: Corte (20/05)</p>
+                </div>
+                <div class="client-actions">
+                  <button class="action-icon"><i class="fas fa-edit"></i></button>
+                  <button class="action-icon"><i class="fas fa-calendar-plus"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tela de Agendamento -->
+        <div class="screen" id="agenda">
+          <div class="screen-header">
+            <h2>Agendamentos</h2>
+            <p>Gerencie a agenda do estúdio</p>
+          </div>
+          
+          <div class="agenda-container">
+            <div class="agenda-sidebar">
+              <div class="calendar-widget">
+                <div class="calendar-header">
+                  <button class="calendar-nav"><i class="fas fa-chevron-left"></i></button>
+                  <h3>Maio 2025</h3>
+                  <button class="calendar-nav"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid">
+                  <div class="calendar-day-header">D</div>
+                  <div class="calendar-day-header">S</div>
+                  <div class="calendar-day-header">T</div>
+                  <div class="calendar-day-header">Q</div>
+                  <div class="calendar-day-header">Q</div>
+                  <div class="calendar-day-header">S</div>
+                  <div class="calendar-day-header">S</div>
+                  
+                  <div class="calendar-day disabled">28</div>
+                  <div class="calendar-day disabled">29</div>
+                  <div class="calendar-day disabled">30</div>
+                  <div class="calendar-day">1</div>
+                  <div class="calendar-day">2</div>
+                  <div class="calendar-day">3</div>
+                  <div class="calendar-day">4</div>
+                  
+                  <div class="calendar-day">5</div>
+                  <div class="calendar-day">6</div>
+                  <div class="calendar-day">7</div>
+                  <div class="calendar-day">8</div>
+                  <div class="calendar-day">9</div>
+                  <div class="calendar-day">10</div>
+                  <div class="calendar-day">11</div>
+                  
+                  <div class="calendar-day">12</div>
+                  <div class="calendar-day">13</div>
+                  <div class="calendar-day">14</div>
+                  <div class="calendar-day">15</div>
+                  <div class="calendar-day">16</div>
+                  <div class="calendar-day">17</div>
+                  <div class="calendar-day">18</div>
+                  
+                  <div class="calendar-day">19</div>
+                  <div class="calendar-day">20</div>
+                  <div class="calendar-day">21</div>
+                  <div class="calendar-day">22</div>
+                  <div class="calendar-day">23</div>
+                  <div class="calendar-day">24</div>
+                  <div class="calendar-day">25</div>
+                  
+                  <div class="calendar-day">26</div>
+                  <div class="calendar-day active">27</div>
+                  <div class="calendar-day has-events">28</div>
+                  <div class="calendar-day has-events">29</div>
+                  <div class="calendar-day">30</div>
+                  <div class="calendar-day">31</div>
+                  <div class="calendar-day disabled">1</div>
+                </div>
+              </div>
+              
+              <div class="profissionais-list">
+                <h3>Profissionais</h3>
+                <div class="profissional-item">
+                  <input type="checkbox" id="prof1" checked>
+                  <label for="prof1">
+                    <span class="color-dot" style="background-color: #4CAF50;"></span>
+                    Ana (Cabeleireira)
+                  </label>
+                </div>
+                <div class="profissional-item">
+                  <input type="checkbox" id="prof2" checked>
+                  <label for="prof2">
+                    <span class="color-dot" style="background-color: #2196F3;"></span>
+                    Carlos (Manicure)
+                  </label>
+                </div>
+                <div class="profissional-item">
+                  <input type="checkbox" id="prof3" checked>
+                  <label for="prof3">
+                    <span class="color-dot" style="background-color: #FF9800;"></span>
+                    Patrícia (Maquiadora)
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="agenda-content">
+              <div class="agenda-actions">
+                <div class="search-container">
+                  <i class="fas fa-search"></i>
+                  <input type="text" placeholder="Buscar cliente...">
+                </div>
+                <button class="btn btn-primary">
+                  <i class="fas fa-plus"></i> Novo Agendamento
+                </button>
+              </div>
+              
+              <div class="agenda-timeline">
+                <div class="timeline-header">
+                  <div class="time-column">Horário</div>
+                  <div class="timeline-columns">
+                    <div class="timeline-column">Ana</div>
+                    <div class="timeline-column">Carlos</div>
+                    <div class="timeline-column">Patrícia</div>
+                  </div>
+                </div>
+                
+                <div class="timeline-content">
+                  <div class="time-slot">
+                    <div class="time-label">09:00</div>
+                    <div class="timeline-columns">
+                      <div class="timeline-column"></div>
+                      <div class="timeline-column">
+                        <div class="appointment-card" style="background-color: rgba(33, 150, 243, 0.2); border-left-color: #2196F3;">
+                          <div class="appointment-time">09:00 - 10:00</div>
+                          <div class="appointment-title">Maria Rodrigues</div>
+                          <div class="appointment-service">Manicure</div>
+                        </div>
+                      </div>
+                      <div class="timeline-column"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="time-slot">
+                    <div class="time-label">10:00</div>
+                    <div class="timeline-columns">
+                      <div class="timeline-column">
+                        <div class="appointment-card" style="background-color: rgba(76, 175, 80, 0.2); border-left-color: #4CAF50;">
+                          <div class="appointment-time">10:00 - 11:30</div>
+                          <div class="appointment-title">João Silva</div>
+                          <div class="appointment-service">Corte e Barba</div>
+                        </div>
+                      </div>
+                      <div class="timeline-column"></div>
+                      <div class="timeline-column"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="time-slot">
+                    <div class="time-label">11:00</div>
+                    <div class="timeline-columns">
+                      <div class="timeline-column"></div>
+                      <div class="timeline-column"></div>
+                      <div class="timeline-column">
+                        <div class="appointment-card" style="background-color: rgba(255, 152, 0, 0.2); border-left-color: #FF9800;">
+                          <div class="appointment-time">11:00 - 12:00</div>
+                          <div class="appointment-title">Carla Mendes</div>
+                          <div class="appointment-service">Maquiagem</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="time-slot">
+                    <div class="time-label">12:00</div>
+                    <div class="timeline-columns">
+                      <div class="timeline-column"></div>
+                      <div class="timeline-column"></div>
+                      <div class="timeline-column"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="time-slot">
+                    <div class="time-label">13:00</div>
+                    <div class="timeline-columns">
+                      <div class="timeline-column"></div>
+                      <div class="timeline-column"></div>
+                      <div class="timeline-column"></div>
+                    </div>
+                  </div>
+                  
+                  <div class="time-slot">
+                    <div class="time-label">14:00</div>
+                    <div class="timeline-columns">
+                      <div class="timeline-column">
+                        <div class="appointment-card" style="background-color: rgba(76, 175, 80, 0.2); border-left-color: #4CAF50;">
+                          <div class="appointment-time">14:00 - 15:00</div>
+                          <div class="appointment-title">Fernanda Lima</div>
+                          <div class="appointment-service">Corte</div>
+                        </div>
+                      </div>
+                      <div class="timeline-column"></div>
+                      <div class="timeline-column"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tela de Notificações -->
+        <div class="screen" id="notificacoes">
+          <div class="screen-header">
+            <h2>Notificações</h2>
+            <p>Envie mensagens para seus clientes</p>
+          </div>
+          
+          <div class="notification-container">
+            <div class="card">
+              <div class="card-header">
+                <h3>Nova Notificação</h3>
+              </div>
+              
+              <form class="form-grid">
+                <div class="form-group full-width">
+                  <label>Destinatários</label>
+                  <div class="tabs">
+                    <button class="tab active">Individual</button>
+                    <button class="tab">Grupo</button>
+                    <button class="tab">Todos</button>
+                  </div>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label for="cliente-notificacao">Cliente</label>
+                  <div class="input-with-icon">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="cliente-notificacao" placeholder="Buscar cliente...">
+                  </div>
+                  <div class="dropdown-results">
+                    <div class="dropdown-item">
+                      <div class="client-avatar small">
+                        <span>MR</span>
+                      </div>
+                      <div>Maria Rodrigues</div>
+                    </div>
+                    <div class="dropdown-item">
+                      <div class="client-avatar small">
+                        <span>JS</span>
+                      </div>
+                      <div>João Silva</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="canal">Canal</label>
+                  <div class="select-with-icon">
+                    <i class="fas fa-comment-alt"></i>
+                    <select id="canal">
+                      <option value="whatsapp">WhatsApp</option>
+                      <option value="sms">SMS</option>
+                      <option value="email">Email</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="template">Template</label>
+                  <div class="select-with-icon">
+                    <i class="fas fa-file-alt"></i>
+                    <select id="template">
+                      <option value="confirmacao">Confirmação</option>
+                      <option value="lembrete">Lembrete</option>
+                      <option value="promocao">Promoção</option>
+                      <option value="aniversario">Aniversário</option>
+                      <option value="personalizado">Personalizado</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label for="mensagem">Mensagem</label>
+                  <div class="input-with-icon textarea">
+                    <i class="fas fa-envelope"></i>
+                    <textarea id="mensagem" rows="4" placeholder="Digite a mensagem a ser enviada...">Olá {nome}, confirmamos seu agendamento para {data} às {hora}. Aguardamos você! Para cancelar, responda esta mensagem.</textarea>
+                  </div>
+                  <div class="message-variables">
+                    <span class="variable">{nome}</span>
+                    <span class="variable">{data}</span>
+                    <span class="variable">{hora}</span>
+                    <span class="variable">{servico}</span>
+                  </div>
+                </div>
+                
+                <div class="form-group full-width">
+                  <label>Programação</label>
+                  <div class="radio-group">
+                    <div class="radio-option">
+                      <input type="radio" id="envio-imediato" name="programacao" checked>
+                      <label for="envio-imediato">Enviar agora</label>
+                    </div>
+                    <div class="radio-option">
+                      <input type="radio" id="envio-programado" name="programacao">
+                      <label for="envio-programado">Agendar envio</label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-actions full-width">
+                  <button type="button" class="btn btn-outline">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Enviar Notificação
+                  </button>
+                </div>
+              </form>
+            </div>
+            
+            <div class="notification-history">
+              <div class="section-header">
+                <h3>Histórico de Notificações</h3>
+                <div class="filter-dropdown">
+                  <button class="btn btn-text">Filtrar <i class="fas fa-filter"></i></button>
+                </div>
+              </div>
+              
+              <div class="notification-list">
+                <div class="notification-item">
+                  <div class="notification-icon sent">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                  <div class="notification-content">
+                    <div class="notification-header">
+                      <h4>Confirmação de Agendamento</h4>
+                      <span class="notification-time">Hoje, 08:30</span>
+                    </div>
+                    <p>Enviado para: Maria Rodrigues</p>
+                    <p class="notification-preview">Olá Maria, confirmamos seu agendamento para 27/05 às 09:00. Aguardamos você!</p>
+                  </div>
+                </div>
+                
+                <div class="notification-item">
+                  <div class="notification-icon sent">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                  <div class="notification-content">
+                    <div class="notification-header">
+                      <h4>Lembrete de Agendamento</h4>
+                      <span class="notification-time">Ontem, 18:15</span>
+                    </div>
+                    <p>Enviado para: João Silva</p>
+                    <p class="notification-preview">Olá João, não esqueça do seu agendamento amanhã às 10:00. Aguardamos você!</p>
+                  </div>
+                </div>
+                
+                <div class="notification-item">
+                  <div class="notification-icon failed">
+                    <i class="fas fa-times-circle"></i>
+                  </div>
+                  <div class="notification-content">
+                    <div class="notification-header">
+                      <h4>Promoção Especial</h4>
+                      <span class="notification-time">26/05, 14:20</span>
+                    </div>
+                    <p>Enviado para: Carla Mendes</p>
+                    <p class="notification-preview">Olá Carla, temos uma promoção especial para você! 20% de desconto em serviços de maquiagem.</p>
+                    <p class="notification-error">Falha no envio: número inválido</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tela de Horários -->
+        <div class="screen" id="horarios">
+          <div class="screen-header">
+            <h2>Controle de Horários</h2>
+            <p>Gerencie a disponibilidade do estúdio</p>
+          </div>
+          
+          <div class="horarios-container">
+            <div class="card">
+              <div class="card-header with-actions">
+                <h3>Configuração de Horários</h3>
+                <button class="btn btn-outline btn-sm">
+                  <i class="fas fa-plus"></i> Adicionar Exceção
+                </button>
+              </div>
+              
+              <div class="horarios-config">
+                <div class="dias-semana">
+                  <div class="dia-header">Dia</div>
+                  <div class="dia-header">Status</div>
+                  <div class="dia-header">Horário Início</div>
+                  <div class="dia-header">Horário Fim</div>
+                  <div class="dia-header">Intervalo</div>
+                  <div class="dia-header">Ações</div>
+                  
+                  <div class="dia-item">Segunda-feira</div>
+                  <div class="dia-item">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="09:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="18:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="12:00" class="time-small"> - 
+                    <input type="time" value="13:00" class="time-small">
+                  </div>
+                  <div class="dia-item">
+                    <button class="action-icon"><i class="fas fa-edit"></i></button>
+                  </div>
+                  
+                  <div class="dia-item">Terça-feira</div>
+                  <div class="dia-item">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="09:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="18:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="12:00" class="time-small"> - 
+                    <input type="time" value="13:00" class="time-small">
+                  </div>
+                  <div class="dia-item">
+                    <button class="action-icon"><i class="fas fa-edit"></i></button>
+                  </div>
+                  
+                  <div class="dia-item">Quarta-feira</div>
+                  <div class="dia-item">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="09:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="18:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="12:00" class="time-small"> - 
+                    <input type="time" value="13:00" class="time-small">
+                  </div>
+                  <div class="dia-item">
+                    <button class="action-icon"><i class="fas fa-edit"></i></button>
+                  </div>
+                  
+                  <div class="dia-item">Quinta-feira</div>
+                  <div class="dia-item">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="09:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="18:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="12:00" class="time-small"> - 
+                    <input type="time" value="13:00" class="time-small">
+                  </div>
+                  <div class="dia-item">
+                    <button class="action-icon"><i class="fas fa-edit"></i></button>
+                  </div>
+                  
+                  <div class="dia-item">Sexta-feira</div>
+                  <div class="dia-item">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="09:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="18:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="12:00" class="time-small"> - 
+                    <input type="time" value="13:00" class="time-small">
+                  </div>
+                  <div class="dia-item">
+                    <button class="action-icon"><i class="fas fa-edit"></i></button>
+                  </div>
+                  
+                  <div class="dia-item">Sábado</div>
+                  <div class="dia-item">
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="09:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="16:00">
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="12:00" class="time-small"> - 
+                    <input type="time" value="13:00" class="time-small">
+                  </div>
+                  <div class="dia-item">
+                    <button class="action-icon"><i class="fas fa-edit"></i></button>
+                  </div>
+                  
+                  <div class="dia-item">Domingo</div>
+                  <div class="dia-item">
+                    <label class="switch">
+                      <input type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="09:00" disabled>
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="18:00" disabled>
+                  </div>
+                  <div class="dia-item">
+                    <input type="time" value="12:00" class="time-small" disabled> - 
+                    <input type="time" value="13:00" class="time-small" disabled>
+                  </div>
+                  <div class="dia-item">
+                    <button class="action-icon" disabled><i class="fas fa-edit"></i></button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-actions">
+                <button type="button" class="btn btn-outline">Cancelar</button>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save"></i> Salvar Configurações
+                </button>
+              </div>
+            </div>
+            
+            <div class="card">
+              <div class="card-header">
+                <h3>Bloqueios e Feriados</h3>
+              </div>
+              
+              <div class="bloqueios-list">
+                <div class="bloqueio-item">
+                  <div class="bloqueio-data">
+                    <i class="fas fa-calendar-times"></i>
+                    <span>01/06/2025</span>
+                  </div>
+                  <div class="bloqueio-info">
+                    <h4>Feriado Municipal</h4>
+                    <p>Estúdio fechado o dia todo</p>
+                  </div>
+                  <div class="bloqueio-actions">
+                    <button class="action-icon"><i class="fas fa-edit"></i></button>
+                    <button class="action-icon"><i class="fas fa-trash-alt"></i></button>
+                  </div>
+                </div>
+                
+                <div class="bloqueio-item">
+                  <div class="bloqueio-data">
+                    <i class="fas fa-calendar-times"></i>
+                    <span>15/06/2025</span>
+                  </div>
+                  <div class="bloqueio-info">
+                    <h4>Manutenção</h4>
+                    <p>Estúdio fechado das 14:00 às 18:00</p>
+                  </div>
+                  <div class="bloqueio-actions">
+                    <button class="action-icon"><i class="fas fa-edit"></i></button>
+                    <button class="action-icon"><i class="fas fa-trash-alt"></i></button>
+                  </div>
+                </div>
+                
+                <div class="bloqueio-item">
+                  <div class="bloqueio-data">
+                    <i class="fas fa-calendar-times"></i>
+                    <span>25/12/2025</span>
+                  </div>
+                  <div class="bloqueio-info">
+                    <h4>Natal</h4>
+                    <p>Estúdio fechado o dia todo</p>
+                  </div>
+                  <div class="bloqueio-actions">
+                    <button class="action-icon"><i class="fas fa-edit"></i></button>
+                    <button class="action-icon"><i class="fas fa-trash-alt"></i></button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="add-bloqueio">
+                <button class="btn btn-outline btn-block">
+                  <i class="fas fa-plus"></i> Adicionar Bloqueio ou Feriado
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Registrar o Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js').then(function(registration) {
+          console.log('Service Worker registrado com sucesso:', registration.scope);
+        }, function(err) {
+          console.log('Falha ao registrar o Service Worker:', err);
+        });
+      });
+    }
+
+    // Adicionar evento para instalação do PWA
+    let deferredPrompt;
+    const addBtn = document.createElement('button');
+    addBtn.style.display = 'none';
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Previne o comportamento padrão
+      e.preventDefault();
+      // Armazena o evento para que possa ser acionado mais tarde
+      deferredPrompt = e;
+      // Atualiza a interface para notificar o usuário que pode instalar o PWA
+      addBtn.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
